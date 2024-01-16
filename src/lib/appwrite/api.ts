@@ -137,7 +137,7 @@ export async function createPost(post: INewPost) {
 }
 
 // ============================== UPLOAD FILE
-export async function uploadFile(file: File) {
+export default async function uploadFile(file: File) {
     try {
         const uploadedFile = await storage.createFile(
             appwriteConfig.storageId,

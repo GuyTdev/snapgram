@@ -3,23 +3,12 @@ import { Models } from "appwrite";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-  Button,
-  Input,
-  Textarea,
-} from "@/components/ui";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage, Button, Input, Textarea} from "@/components/ui";
 import { PostValidation } from "@/lib/validation";
 import { useToast } from "@/components/ui/use-toast";
 import { useUserContext } from "@/context/AuthContext";
-import { Loader } from "@/components/shared";
+import { Loader,FileUploader } from "@/components/shared";
 import { useCreatePost, useUpdatePost } from "@/lib/react-query/queriesAndMutations";
-import FileUploader from "../shared/FileUploader";
 
 type PostFormProps = {
   post?: Models.Document;
