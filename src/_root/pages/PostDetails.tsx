@@ -3,7 +3,6 @@ import { Button } from "@/components/ui";
 import { useUserContext } from "@/context/AuthContext";
 import { useGetPostById } from "@/lib/react-query/queriesAndMutations";
 import { multiFormatDateString } from "@/lib/utils";
-import React from "react";
 import { Link, useParams } from "react-router-dom";
 
 const PostDetails = () => {
@@ -91,7 +90,7 @@ const PostDetails = () => {
               </ul>
             </div>
             <div className="w-full" >
-                  <PostStats post={post|| {}} userId={user.id}/>
+                  <PostStats post={post} userId={user.id}/>
             </div>
           </div>
         </div>
