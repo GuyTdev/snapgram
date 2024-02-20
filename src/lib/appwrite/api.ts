@@ -199,27 +199,26 @@ export async function searchPosts(searchTerm: string) {
     }
 }
 
-export async function getInfinitePosts() {
-// export async function getInfinitePosts({ pageParam }: { pageParam: number }) {
-    // const queries: any[] = [Query.orderDesc("$updatedAt"), Query.limit(9)];
+export async function getInfinitePosts({ pageParam }: { pageParam: number }) {
+    const queries: any[] = [Query.orderDesc("$updatedAt"), Query.limit(9)];
 
-    // if (pageParam) {
-    //     queries.push(Query.cursorAfter(pageParam.toString()));
-    // }
+    if (pageParam) {
+        queries.push(Query.cursorAfter(pageParam.toString()));
+    }
 
-    // try {
-    //     const posts = await databases.listDocuments(
-    //         appwriteConfig.databaseId,
-    //         appwriteConfig.postCollectionId,
-    //         queries
-    //     );
+    try {
+        const posts = await databases.listDocuments(
+            appwriteConfig.databaseId,
+            appwriteConfig.postCollectionId,
+            queries
+        );
 
-    //     if (!posts) throw Error;
+        if (!posts) throw Error;
 
-    //     return posts;
-    // } catch (error) {
-    //     console.log(error);
-    // }
+        return posts;
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 // ============================== GET POST BY ID
